@@ -200,6 +200,8 @@ VoxeetSDK.conference.on("left", onConferenceEnded);
 VoxeetSDK.conference.on("ended", onConferenceEnded);
 
 $(document).ready(() => {
+    $("#joinConference").click(joinConference);
+    $("#replayConference").click(replayConference);
     const layoutType = $("#layoutType").val();
     console.log(layoutType);
     if (layoutType === "stream" || layoutType === "hls") {
