@@ -211,20 +211,20 @@ $(document).ready(() => {
     $("<div />").attr("id", "conferenceStartedVoxeet").appendTo("body");
 
 
-     const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
-     const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
-     const conferenceId = "f2283557-20dd-4c70-99b5-da3e201bbf0f";
+    //  const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
+    //  const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
+    // // const conferenceId = "e0ce9795-3e1c-431e-beca-20551860d4a9";
 
-    VoxeetSDK.initialize(consumerKey, consumerSecret);
-//    getUrlParam();
+    // VoxeetSDK.initialize(consumerKey, consumerSecret);
+// //    getUrlParam();
 
-    const mixer = { name: "Test", externalId: "Test" };
-    const joinOptions = { constraints: { video: false, audio: false } };
+    // const mixer = { name: "Test", externalId: "Test" };
+    // const joinOptions = { constraints: { video: false, audio: false } };
     
-    // Open a session for the mixer
-    VoxeetSDK.session.open(mixer)
-        .then(() => VoxeetSDK.conference.fetch(conferenceId))
-        // Join the conference
-        .then((conference) => VoxeetSDK.conference.join(conference, joinOptions))
-        .catch((err) => console.log(err));
+    // // Open a session for the mixer
+    // VoxeetSDK.session.open(mixer)
+    //     .then(() => VoxeetSDK.conference.fetch(conferenceId))
+    //     // Join the conference
+    //     .then((conference) => VoxeetSDK.conference.join(conference, joinOptions))
+    //     .catch((err) => console.log(err));
 });
