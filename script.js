@@ -210,8 +210,8 @@ $(document).ready(() => {
     $("<div />").attr("id", "conferenceStartedVoxeet").appendTo("body");
 
 
-    // const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
-    // const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
+     const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
+     const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
     // const conferenceId = "e0ce9795-3e1c-431e-beca-20551860d4a9";
 
     VoxeetSDK.initialize(consumerKey, consumerSecret);
