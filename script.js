@@ -5,7 +5,7 @@ const initializeVoxeetSDK = () => {
     const refreshToken = $("#refreshToken").val();
     const refreshUrl = $("#refreshUrl").val();
 
-    // Reference: https://dolby.io/developers/interactivity-apis/client-sdk/reference-javascript/voxeetsdk#static-initializetoken
+   
     VoxeetSDK.initializeToken(accessToken, () =>
         fetch(refreshUrl, {
             method: 'POST',
@@ -211,20 +211,20 @@ $(document).ready(() => {
 
 
     // Insert your consumer key, secret and conference id
-//     const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
-//     const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
-//     const conferenceId = "9092c9d3-ec55-4e45-a123-626a745fd6bf";
+    const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
+    const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
+    const conferenceId = "fce7798a-acbf-4d58-96c9-63a54447eb65";
 
-//     VoxeetSDK.initialize(consumerKey, consumerSecret);
-// //    getUrlParam();
+    VoxeetSDK.initialize(consumerKey, consumerSecret);
+//    getUrlParam();
 
-//     const mixer = { name: "Test", externalId: "Test" };
-//     const joinOptions = { constraints: { video: false, audio: false } };
+    const mixer = { name: "Test", externalId: "Test" };
+    const joinOptions = { constraints: { video: false, audio: false } };
     
-//     // Open a session for the mixer
-//     VoxeetSDK.session.open(mixer)
-//         .then(() => VoxeetSDK.conference.fetch(conferenceId))
-//         // Join the conference
-//         .then((conference) => VoxeetSDK.conference.join(conference, joinOptions))
-//         .catch((err) => console.log(err));
+    // Open a session for the mixer
+    VoxeetSDK.session.open(mixer)
+        .then(() => VoxeetSDK.conference.fetch(conferenceId))
+        // Join the conference
+        .then((conference) => VoxeetSDK.conference.join(conference, joinOptions))
+        .catch((err) => console.log(err));
 });
