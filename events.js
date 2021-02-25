@@ -1,3 +1,4 @@
+
 // When a video stream is added to the conference
 VoxeetSDK.conference.on('streamAdded', (participant, stream) => {
     console.log(`Event - streamAdded from ${participant.info.name} (${participant.id})`);
