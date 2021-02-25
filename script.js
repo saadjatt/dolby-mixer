@@ -5,7 +5,7 @@ const initializeVoxeetSDK = () => {
     const refreshToken = $("#refreshToken").val();
     const refreshUrl = $("#refreshUrl").val();
 
-   
+    // Reference: https://dolby.io/developers/interactivity-apis/client-sdk/reference-javascript/voxeetsdk#static-initializetoken
     VoxeetSDK.initializeToken(accessToken, () =>
         fetch(refreshUrl, {
             method: 'POST',
@@ -14,31 +14,11 @@ const initializeVoxeetSDK = () => {
                 'Authorization': 'Bearer ' + accessToken
             },
             body: { refresh_token: refreshToken }
-        }).then(
-            d => d.json().access_token
-            )
+        }).then(d => d.json().access_token)
     );
 };
 
-// const getUrlParam = () => {
-//     var url_string = window.location.href;
-//     var url = new URL(url_string);
-    
-//     const conferenceAlias = url.searchParams.get("alias");
-   
-//     const { access_token } = await generateToken();
-//     const headers = {
-//       'Content-Type': 'application/json',
-//       'Cache-Control': 'no-cache',
-//       'Authorization': 'Bearer ' + access_token
-//     };
-//     const response = await fetch(`https://api.voxeet.com/v1/monitor/conferences?alias=${conferenceAlias}&active=true`, { headers });
-//     const { conferences = [] } = await response.json();
-//     toggleBroadcast(conferences[0] || {});
-  
-// };
-
-$("#joinConference").click(() => {
+const joinConference = () => {
     // Initialize the SDK
     initializeVoxeetSDK();
 
@@ -71,9 +51,9 @@ $("#joinConference").click(() => {
         // Join the conference
         .then((conference) => VoxeetSDK.conference.join(conference, joinOptions))
         .catch((err) => console.log(err));
-});
+};
 
-$("#replayConference").click(() => {
+const replayConference = () => {
     // Initialize the SDK
     initializeVoxeetSDK();
 
@@ -91,10 +71,10 @@ $("#replayConference").click(() => {
     // Open a session for the mixer
     VoxeetSDK.session.open(mixer)
         .then(() => VoxeetSDK.conference.fetch(conferenceId))
-        // Replay the conference from the begining
+        // Replay the conference from the beginning
         .then((conference) => VoxeetSDK.conference.replay(conference, 0, { enabled: true}))
         .catch((err) => console.log(err));
-});
+};
 
 
 // Add the video stream to the web page
@@ -202,8 +182,8 @@ VoxeetSDK.conference.on("ended", onConferenceEnded);
 $(document).ready(() => {
     $("#joinConference").click(joinConference);
     $("#replayConference").click(replayConference);
+    
     const layoutType = $("#layoutType").val();
-    console.log(layoutType);
     if (layoutType === "stream" || layoutType === "hls") {
         // Display the live message for the live streams
         $('#live').removeClass('hide');
@@ -213,12 +193,12 @@ $(document).ready(() => {
     $("<div />").attr("id", "conferenceStartedVoxeet").appendTo("body");
 
 
-    //  const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
-    //  const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
-    // // const conferenceId = "e0ce9795-3e1c-431e-beca-20551860d4a9";
+    // // Insert your consumer key, secret and conference id
+    // const consumerKey = "";
+    // const consumerSecret = "";
+    // const conferenceId = "";
 
     // VoxeetSDK.initialize(consumerKey, consumerSecret);
-// //    getUrlParam();
 
     // const mixer = { name: "Test", externalId: "Test" };
     // const joinOptions = { constraints: { video: false, audio: false } };
