@@ -43,9 +43,9 @@ $("#joinConference").click(() => {
     initializeVoxeetSDK();
 
     // Load the settings injected by the mixer
-    const conferenceId = $("conferenceId").val();
-    const thirdPartyId = $("thirdPartyId").val();
-    const layoutType = $("layoutType").val();
+    const conferenceId = $("#conferenceId").val();
+    const thirdPartyId = $("#thirdPartyId").val();
+    const layoutType = $("#layoutType").val();
 
     const mixer = {
         name: "Mixer",
@@ -78,9 +78,9 @@ $("#replayConference").click(() => {
     initializeVoxeetSDK();
 
     // Load the settings injected by the mixer
-    const conferenceId = $("conferenceId").val();
-    const thirdPartyId = $("thirdPartyId").val();
-    const layoutType = $("layoutType").val();
+    const conferenceId = $("#conferenceId").val();
+    const thirdPartyId = $("#thirdPartyId").val();
+    const layoutType = $("#layoutType").val();
 
     const mixer = {
         name: "Mixer",
@@ -200,7 +200,8 @@ VoxeetSDK.conference.on("left", onConferenceEnded);
 VoxeetSDK.conference.on("ended", onConferenceEnded);
 
 $(document).ready(() => {
-    const layoutType = $("layoutType").val();
+    const layoutType = $("#layoutType").val();
+    console.log(layoutType);
     if (layoutType === "stream" || layoutType === "hls") {
         // Display the live message for the live streams
         $('#live').removeClass('hide');
@@ -210,11 +211,11 @@ $(document).ready(() => {
     $("<div />").attr("id", "conferenceStartedVoxeet").appendTo("body");
 
 
-     const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
-     const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
-    // const conferenceId = "e0ce9795-3e1c-431e-beca-20551860d4a9";
+    //  const consumerKey = "No0NXZnhqFLWx-d7WRM3rg==";
+    //  const consumerSecret = "OQYEsFJ4b58XvmKdnX406cW3zYUzB-LjPhGFpMTeRyk=";
+    // // const conferenceId = "e0ce9795-3e1c-431e-beca-20551860d4a9";
 
-    VoxeetSDK.initialize(consumerKey, consumerSecret);
+    // VoxeetSDK.initialize(consumerKey, consumerSecret);
 // //    getUrlParam();
 
     // const mixer = { name: "Test", externalId: "Test" };
